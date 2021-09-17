@@ -30,6 +30,7 @@ class Tree {
   }
   void display() {
     background(200);
+    // draw self node
     pushMatrix();
     if (self.type.equals("oneLine")) {
       fill(204, 102, 0); // orange 
@@ -46,15 +47,24 @@ class Tree {
     textSize(3.6*size);
     text(self.command,0-l*size*8/10,0-l*size*3/10);
     popMatrix();
+    // draw child node
     if (child_size > 0) {
-      translate(width/2,height*1/3+size*6);
-      println("child");
-      fill(204, 102, 0);
-      l = child[0].command.length();
-      rect(0-l*size,0-l*size,l*size*2,l*size);
-      fill(0);
-      textSize(3.6*size);
-      text(child[0].command,0-l*size*8/10,0-l*size*3/10);
+      for (int i =0;child_size > i;i++) {
+        pushMatrix();
+        translate(width/2,height*1/3+size*6);
+        if (self.type.equals("oneLine")) {
+          fill(204, 102, 0); // orange 
+        }
+        else {
+          fill(255); // white
+        }
+        l = child[0].command.length();
+        rect(0-l*size,0-l*size,l*size*2,l*size);
+        fill(0);
+        textSize(3.6*size);
+        text(child[i].command,0-l*size*8/10,0-l*size*3/10);
+        popMatrix();
+      }   
     }
   }
 }
