@@ -1,10 +1,10 @@
 class Tree {
   Node self;
-  Node[] child = new Node[3]; // next, if, else
   int child_size;
   Tree() {
-    for (int i = 0;i > child.length;i++) {
-      child[i] = new Node("NONE"," ");
+    Node self = new Node("null", "");
+    for (int i = 0;3 > i;i++) {
+      self.child[i] = new Node("null"," ");
     }
     child_size = 0;
   }
@@ -25,7 +25,7 @@ class Tree {
     else {
       i = 0;
     }
-    child[i] = new Node(type,input);
+    self.child[i] = new Node(type,input);
     child_size += 1;
   }
   void display() {
@@ -58,11 +58,11 @@ class Tree {
         else {
           fill(255); // white
         }
-        l = child[0].command.length();
+        l = self.child[0].command.length();
         rect(0-l*size,0-l*size,l*size*2,l*size);
         fill(0);
         textSize(3.6*size);
-        text(child[i].command,0-l*size*8/10,0-l*size*3/10);
+        text(self.child[i].command,0-l*size*8/10,0-l*size*3/10);
         popMatrix();
       }   
     }
