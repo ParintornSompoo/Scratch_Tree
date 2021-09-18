@@ -13,6 +13,9 @@ class Tree {
       }
       else {
         Node c = root.child.get(0);
+        if (c.child.size() > 0) {
+          c.child.get(0).setChild(type,input);
+        }
         c.setChild(type,input);
       }
     }
@@ -43,17 +46,11 @@ class Tree {
     text(root.command,0-l*size*8/10,0-l*size*3/10);
     popMatrix();
     // draw child node
+    
     if (root.child.size() > 0) {
       for (int i =0;root.child.size() > i;i++) {
         Node c = root.child.get(i);
         c.display(i+1);
-        i += 1;
-        if (c.child.size() > 0) {
-          for (int j =0;root.child.size() > j;j++) {
-            Node cc = c.child.get(j);
-            cc.display(i+c.child.size());
-          }
-        }
       }   
     }
   }

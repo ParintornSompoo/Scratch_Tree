@@ -11,7 +11,16 @@ class Node {
     Node c = new Node(type,input);
     child.add(c);
   }
-  void display(int i) {
+  void display(int i) {  
+      //println("display i : " + i);
+      //println("command : " + command);
+      if (child.size() > 0) {
+        Node c = child.get(0);
+        c.display(i+1);
+        //println(child.get(0).command);
+      } else {
+        //println("no Child");
+      }
       pushMatrix();
       if (type.equals("oneLine")) {
         fill(204, 102, 0); // orange 
