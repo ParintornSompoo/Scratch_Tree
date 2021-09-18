@@ -2,10 +2,10 @@ Tree main;
 void setup() {
   size(800,600);
   Tree main = new Tree();
-  main.setSelf("else","var x;");
-  main.setChild("oneLine","x = 1;");
-  main.setChild("oneLine","x = 2;");
-  main.setChild("oneLine","x = 3;");
+  main.setSelf("oneLine","var x;");
+  for (int i=1;4>=i;i++) {
+    main.setChild("oneLine","x = "+Integer.toString(i)+ ";");
+  }
   main.display();
 }
 

@@ -9,6 +9,7 @@ class Node {
   }
   void setChild(String type,String input) {
     Node c = new Node(type,input);
+    println(input);
     child.add(c);
   }
   void display(int i) {  

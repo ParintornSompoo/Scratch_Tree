@@ -16,7 +16,9 @@ class Tree {
         if (c.child.size() > 0) {
           c.child.get(0).setChild(type,input);
         }
-        c.setChild(type,input);
+        else {
+          c.setChild(type,input);
+        }
       }
     }
   }
