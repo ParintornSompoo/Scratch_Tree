@@ -2,9 +2,9 @@ class Tree {
   Node root;
   int child_size;
   Tree() {
-    Node self = new Node("null", "");
+    Node root = new Node("null", "");
     for (int i = 0;3 > i;i++) {
-      self.child[i] = new Node("null"," ");
+      root.child[i] = new Node("null"," ");
     }
     child_size = 0;
   }
