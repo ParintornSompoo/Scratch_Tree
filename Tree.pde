@@ -3,24 +3,11 @@ class Tree {
   Tree() {
     Node root = new Node("null", "");
   }
-  void setSelf(String type,String input) {
+  void setRoot(String type,String input) {
     root = new Node(type,input);
   }
   void setChild(String type,String input) {
-    if (type.equals("oneLine")) {
-      if (root.child.size() == 0) {
-        root.setChild(type,input);
-      }
-      else {
-        Node c = root.child.get(0);
-        if (c.child.size() > 0) {
-          c.child.get(0).setChild(type,input);
-        }
-        else {
-          c.setChild(type,input);
-        }
-      }
-    }
+    root.setChild(type,input);
   }
   void display() {
     background(200);

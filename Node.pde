@@ -7,10 +7,18 @@ class Node {
     command = input;
     child = new ArrayList<Node>();
   }
-  void setChild(String type,String input) {
-    Node c = new Node(type,input);
-    println(input);
-    child.add(c);
+  void setChild(String type_,String input_) {
+    if (type.equals("oneLine")) {
+      if (child.size() == 0) {
+        Node c = new Node(type_,input_);
+        child.add(c);
+        return;
+      }
+      else {
+        Node c = child.get(0);
+        c.setChild(type_,input_);
+      }
+    }
   }
   void display(int i) {  
       //println("display i : " + i);
