@@ -7,4 +7,10 @@ class Node {
     command = input;
     child = new ArrayList<Node>();
   }
+  void setChild(String type,String input) {
+    if (child.size() == 0) {
+      Node c = new Node(type,input);
+      child.add(c);
+    }
+  }
 }
