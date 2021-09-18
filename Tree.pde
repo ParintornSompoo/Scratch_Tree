@@ -7,9 +7,14 @@ class Tree {
     root = new Node(type,input);
   }
   void setChild(String type,String input) {
-    if (root.child.size() == 0) {
-      Node c = new Node(type,input);
-      root.child.add(c);
+    if (type.equals("oneLine")) {
+      if (root.child.size() == 0) {
+        root.setChild(type,input);
+      }
+      else {
+        Node c = root.child.get(0);
+        c.setChild(type,input);
+      }
     }
   }
   void display() {
@@ -41,38 +46,14 @@ class Tree {
     if (root.child.size() > 0) {
       for (int i =0;root.child.size() > i;i++) {
         Node c = root.child.get(i);
-        pushMatrix();
-        if (c.type.equals("oneLine")) {
-          fill(204, 102, 0); // orange 
+        c.display(i+1);
+        i += 1;
+        if (c.child.size() > 0) {
+          for (int j =0;root.child.size() > j;j++) {
+            Node cc = c.child.get(j);
+            cc.display(i+c.child.size());
+          }
         }
-        else if (c.type.equals("if")) {
-          fill(0, 200, 100); //green
-        }
-        else if (c.type.equals("else")) {
-          fill(0, 100, 200); //blue
-        }
-        else {
-          fill(255); // white
-        }
-        translate(width/2,height*1/3+size*6);
-        if (root.type.equals("oneLine")) {
-          fill(204, 102, 0); // orange 
-        }
-        if (root.type.equals("if")) {
-          fill(0, 200, 100); //green
-        }
-        if (root.type.equals("else")) {
-          fill(0, 100, 200); 
-        }
-        else {
-          fill(255); // white
-        }
-        l = c.command.length();
-        rect(0-l*size,0-l*size,l*size*2,l*size);
-        fill(0);
-        textSize(3.6*size);
-        text(c.command,0-l*size*8/10,0-l*size*3/10);
-        popMatrix();
       }   
     }
   }
