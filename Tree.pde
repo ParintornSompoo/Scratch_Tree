@@ -27,19 +27,17 @@ class Tree {
     }
     translate(width/2,height*1/3);
     int size = 6;
-    float l;
-    l = root.command.length();
+    int l = root.command.length();
     rect(0-l*size,0-l*size,l*size*2,l*size);
     fill(0);
     textSize(3.6*size);
     text(root.command,0-l*size*8/10,0-l*size*3/10);
     popMatrix();
     // draw child node
-    
     if (root.child.size() > 0) {
       for (int i =0;root.child.size() > i;i++) {
         Node c = root.child.get(i);
-        c.display(i+1);
+        c.display(0);
       }   
     }
   }

@@ -19,17 +19,11 @@ class Node {
         c.setChild(type_,input_);
       }
     }
+    else if (type.equals("if-else")) {
+      
+    }
   }
-  void display(int i) {  
-      //println("display i : " + i);
-      //println("command : " + command);
-      if (child.size() > 0) {
-        Node c = child.get(0);
-        c.display(i+1);
-        //println(child.get(0).command);
-      } else {
-        //println("no Child");
-      }
+  void display(int L) {  
       pushMatrix();
       if (type.equals("oneLine")) {
         fill(204, 102, 0); // orange 
@@ -44,13 +38,18 @@ class Node {
         fill(255); // white
       }
       int size = 6;
-      float l;
-      translate(width/2,height*1/3 + (i*size*size));
-      l = command.length();
-      rect(0-l*size,0-l*size,l*size*2,l*size);
+      int l = command.length();
+      translate(width/2,height*1/3+((l+L)*size));
+      rect(0-l*size,0-l*size,l*size*2,l*size); // x, y, width, height
       fill(0);
       textSize(3.6*size);
       text(command,0-l*size*8/10,0-l*size*3/10);
       popMatrix();
+      if (child.size() > 0) {
+        Node c = child.get(0);
+        c.display(l+L);
+      } else {
+        
+      }
   }   
 }
